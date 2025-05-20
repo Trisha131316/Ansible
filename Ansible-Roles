@@ -1,0 +1,39 @@
+1. Create a new deployment of Ansible cluster of 5 nodes
+2. Label 2 nodes as test and other 2 as prod
+3. Install Java on test nodes
+4. Install MySQL server on prod nodes
+Use Ansible roles for the above and group the hosts under test and prod
+
+     sudo apt update
+     sudo apt install ansible
+     ssh-keygen
+     cd .ssh
+     ls
+     nano id_ed25519.pub
+     ssh ubuntu@34.239.111.150
+     ssh ubuntu@54.89.44.208    
+     ssh ubuntu@44.212.25.47
+     ssh ubuntu@44.206.247.183
+     clear
+     cd /etc
+     ls
+     mkdir ansible
+     sudo mkdir ansible
+     cd ansible
+     sudo mkdir roles
+     cd roles
+     sudo apt install tree
+     sudo ansible-galaxy init java-install
+     sudo ansible-galaxy init mysql
+     tree java-insttall
+     tree java-install
+     cd java-install
+     cd tasks
+     sudo nano main.yml
+     cd /etc/ansible/roles/mysql/tasks
+     sudo nano main.yml
+     cd /etc/ansible
+     sudo nano inventory.ini
+     sudo nano play.yml
+     ansible-playbook -i inventory.ini play.yml
+ 
