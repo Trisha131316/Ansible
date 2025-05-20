@@ -1,0 +1,47 @@
+main.yml---  java role
+
+---
+# tasks file for java-install
+- name: install java
+  become: true
+  apt:
+    name: openjdk-17-jdk
+    state: present
+
+main.yml---  mysql server role
+
+---
+# tasks file for mysql
+- name: install mysql
+  become: true
+  apt:
+    name: mysql-server
+    state: present
+
+inventory.ini
+
+[test]
+test1 ansible_host=54.89.44.208 ansible_user=ubuntu
+test2 ansible_host=44.212.25.47 ansible_user=ubuntu
+
+[prod]
+prod1 ansible_host=44.206.247.183  ansible_user=ubuntu
+prod2 ansible_host=34.239.111.150  ansible_user=ubuntu
+
+
+site.yml
+
+---
+- name: install java
+  become: true
+  hosts: test
+  roles:
+     - java-install
+
+- name: install mysql server
+  become: true
+  hosts: prod
+  roles:
+     - mysql
+
+
